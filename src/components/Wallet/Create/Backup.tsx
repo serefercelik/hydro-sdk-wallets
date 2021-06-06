@@ -63,7 +63,7 @@ class Backup extends React.PureComponent<Props, State> {
   private test() {
     const phraseLength = this.getMnemonicArray().length;
 
-    const indices = new Set();
+    const indices:any = new Set();
     while (indices.size < 3) {
       const index = Math.floor(Math.random() * phraseLength);
       indices.add(index);

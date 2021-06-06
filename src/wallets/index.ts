@@ -2,9 +2,8 @@ import HydroWallet from "./hydroWallet";
 import ExtensionWallet from "./extensionWallet";
 import CoinbaseWallet from "./coinbaseWallet";
 import BaseWallet from "./baseWallet";
-import HardwareWallet from "./HardwareWallet";
-import WalletConnectWallet from "./WalletConnectWallet";
-import Ledger from "./ledger";
+import HardwareWallet from "./hardwareWallet";
+import WalletConnectWallet from "./walletConnectWallet";
 import Dcent from "./dcent";
 import Fortmatic from "./fortmatic";
 import Torus from "./torus";
@@ -24,7 +23,6 @@ export {
   NeedUnlockWalletError,
   NotSupportedError,
   WalletConnectWallet,
-  Ledger,
   Dcent,
   Fortmatic,
   CoinbaseWallet,

@@ -7,7 +7,6 @@ import {
   NeedUnlockWalletError,
   NotSupportedError,
   WalletConnectWallet,
-  Ledger,
   Dcent,
   CoinbaseWallet,
   getNetworkID,
@@ -365,6 +364,7 @@ export const loadLocalWallets = () => {
   };
 };
 
+/** 
 export const loadLedger = () => {
   return async (dispatch: any) => {
     try {
@@ -378,7 +378,10 @@ export const loadLedger = () => {
     }
   };
 };
+*/
 
+/**
+ * 
 export const loadTrezor = () => {
   return async (dispatch: any) => {
     try {
@@ -391,6 +394,8 @@ export const loadTrezor = () => {
     }
   };
 };
+ */
+
 
 export const connectWallet = (type: string) => {
   return {
@@ -429,7 +434,7 @@ export const watchWallet = (wallet: BaseWallet) => {
         address = addresses.length > 0 ? addresses[0].toLowerCase() : null;
       } catch (e) {
         if (
-          type === Ledger.TYPE ||
+    
           type === Dcent.TYPE ||
           type === Fortmatic.TYPE ||
           type === Torus.TYPE ||

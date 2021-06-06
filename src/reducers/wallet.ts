@@ -1,6 +1,6 @@
 import { Map, fromJS } from "immutable";
 import { BigNumber } from "bignumber.js";
-import { ImmutableMap } from ".";
+import { ImmutableMap } from "./index";
 import { BaseWallet, HydroWallet } from "../wallets";
 import { WALLET_STEPS } from "../actions/wallet";
 

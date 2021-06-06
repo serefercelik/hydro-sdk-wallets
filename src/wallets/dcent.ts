@@ -24,7 +24,7 @@ export default class Dcent extends BaseWallet {
   public async reconnect() {
     await this.disconnect();
     // hack await disconnect
-    await new Promise((resolve, reject) => {
+    await new Promise<void>((resolve, reject) => {
       setTimeout(() => {
         this.connect();
         resolve();

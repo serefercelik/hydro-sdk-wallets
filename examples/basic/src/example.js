@@ -12,6 +12,7 @@ class Example extends React.Component {
         <br />
         Eth Balance: {account.get("balance").toString()}
         <br />
+        {account.toString()}
         <br />
         <button
           className="HydroSDK-button"

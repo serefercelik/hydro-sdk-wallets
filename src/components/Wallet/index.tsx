@@ -13,7 +13,6 @@ import {
   WalletConnectWallet,
   defaultWalletTypes,
   setGlobalNodeUrl,
-  Ledger,
   HydroWallet,
   Dcent,
   CoinbaseWallet,
@@ -39,8 +38,8 @@ import {
   loadDcentWallet,
   loadFortmaticWallet,
   loadExtensionWallet,
-  loadLedger,
-  loadTrezor,
+
+
   loadTorus
 } from "../../actions/wallet";
 import Svg from "../Svg";
@@ -227,7 +226,6 @@ class Wallet extends React.PureComponent<Props, State> {
       selectedWalletType === CoinbaseWallet.TYPE ||
       selectedWalletType === Fortmatic.TYPE ||
       selectedWalletType === ExtensionWallet.TYPE ||
-      selectedWalletType === Ledger.TYPE ||
       selectedWalletType === Trezor.TYPE ||
       selectedWalletType === Torus.TYPE
     ) {
@@ -256,10 +254,6 @@ class Wallet extends React.PureComponent<Props, State> {
       dispatch(loadFortmaticWallet(fortmaticApiKey));
     } else if (selectedWalletType === ExtensionWallet.TYPE && window.ethereum) {
       dispatch(loadExtensionWallet());
-    } else if (selectedWalletType === Ledger.TYPE) {
-      dispatch(loadLedger());
-    } else if (selectedWalletType === Trezor.TYPE) {
-      dispatch(loadTrezor());
     } else if (selectedWalletType === Torus.TYPE) {
       dispatch(loadTorus());
     }
@@ -280,8 +274,6 @@ class Wallet extends React.PureComponent<Props, State> {
         if (selectedWalletType === WalletConnectWallet.TYPE) {
           const account = accounts.get(WalletConnectWallet.TYPE);
           if (account && account.get("isLocked")) return this.renderQrImage();
-        } else if (selectedWalletType === Ledger.TYPE) {
-          return <HardwareWalletConnector copyCallback={copyCallback} walletClass={Ledger} />;
         } else if (selectedWalletType === Trezor.TYPE) {
           return <HardwareWalletConnector copyCallback={copyCallback} walletClass={Trezor} />;
         } else if (selectedWalletType === ExtensionWallet.TYPE && !extensionWalletSupported) {
@@ -471,16 +463,7 @@ class Wallet extends React.PureComponent<Props, State> {
               <div className="HydroSDK-optionItem HydroSDK-optionType">{walletTranslations.hardwareWallets}</div>
             )
           },
-          {
-            value: Ledger.TYPE,
-            component: (
-              <div className="HydroSDK-optionItem">
-                <Svg name="ledger" />
-                {Ledger.LABEL}
-              </div>
-            ),
-            onSelect: (option: Option) => this.onSelect(option)
-          },
+          
           {
             value: Trezor.TYPE,
             component: (
